@@ -1,0 +1,66 @@
+﻿@model Dokterspunt.ViewModels.IndexSpecialisatieViewModel
+
+@{
+    ViewData["Title"] = "Specialiteiten - beheren";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .buttonMargin {
+        margin-top: 2rem;
+        width: 100%;
+    }
+</style>
+
+<header class="col-12 text-center">
+    <h1>Specialisatie beheren</h1>
+</header>
+<div id="wrapper" class="slick-slider">
+
+
+    <div class="col-12">
+        <h2 class="text-sm-center text-md-left">Specialisatie aanmaken</h2>
+        <form asp-action="Create">
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label class="form-label" asp-for="Create.Beschrijving">Naam</label>
+                    <input class="form-control" asp-for="Create.Beschrijving" type="text" />
+                    <span class="text-danger" asp-validation-for="Create.Beschrijving" />
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn btn-primary form-control buttonMargin" type="submit">Maak dokter aan!</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="col-sm-12">
+        <form asp-action="ProcessForm">
+            <h2 class="text-sm-center text-md-left">Wijzig een specialisatie of verwijder het</h2>
+            <div class="form-row">
+                <div class="col-12 form-group">
+                    <label asp-for="Update.GeselecteerdeSpecialisatie">Kies een specialisatie</label>
+                    <select asp-for="Update.GeselecteerdeSpecialisatie" class="form-control" asp-items=Model.Update.Specialisaties>
+                        <option disabled>- Dokters -</option>
+                    </select>
+                    <span asp-validation-for="Update.GeselecteerdeSpecialisatie" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label class="form-label" asp-for="Update.Beschrijving">Beschrijving</label>
+                    <input class="form-control" type="text" asp-for="Update.Beschrijving" />
+                </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="bewaren" value="Bewaren" />
+                </div>
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="deleten" onclick="return alert('als u een specialisatie verwijderd worden bijhorende dokters automatisch herverdeeld')" value="Verwijderen" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

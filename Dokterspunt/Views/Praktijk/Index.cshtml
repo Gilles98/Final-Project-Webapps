@@ -1,0 +1,178 @@
+﻿@{
+    ViewData["Title"] = "Praktijk-beheren";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Dokterspunt.ViewModels.ModelsForViewModels.IndexPraktijkViewModel
+
+
+
+<header class="col-12 text-center">
+    <h1>Praktijk beheren</h1>
+</header>
+<div id="wrapper" class="slick-slider">
+    <div class="col-12">
+        <h2 class="text-sm-center text-md-left">Maak een praktijk aan</h2>
+        <form asp-action="ProcessForm">
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Gemeente">Gemeente</label>
+                    <input class="form-control" asp-for="Create.Gemeente" type="text" />
+
+                    <span class="text-danger" asp-validation-for="Create.Gemeente" />
+
+                </div>
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Straat">Straat</label>
+                    <input class="form-control" type="text" asp-for="Create.Straat" />
+                    <span asp-validation-for="Create.Straat" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.HuisNr">Huisnummer</label>
+                    <input class="form-control" type="text" asp-for="Create.HuisNr" />
+                    <span asp-validation-for="Create.HuisNr" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Postcode">Postcode</label>
+                    <input class="form-control" type="number" asp-for="Create.Postcode" />
+                    <span asp-validation-for="Create.Postcode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Lengtegraad">Lengtegraad</label>
+                    <input class="form-control" type="text" asp-for="Create.Lengtegraad" />
+                    <span asp-validation-for="Create.Lengtegraad" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Breedtegraad">Breedtegraad</label>
+                    <input class="form-control" type="text" asp-for="Create.Breedtegraad" />
+                    <span asp-validation-for="Create.Breedtegraad" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <input class="btn btn-primary form-control buttonMargin" type="submit" name="opslagen" value="Maak praktijk aan!" />
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-12">
+        <form asp-action="ProcessForm">
+            <h2 class="text-sm-center text-md-left">Wijzig een praktijk of verwijder het</h2>
+            <div class="form-row">
+                <div class="col-12 form-group">
+                    <label asp-for="Update.GeselecteerdePraktijk">Kies een praktijk</label>
+                    <select asp-for="Update.GeselecteerdePraktijk" class="form-control" asp-items=Model.Update.Praktijken>
+                        <option disabled>- Dokters -</option>
+                    </select>
+                    <span asp-validation-for="Update.GeselecteerdePraktijk" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Gemeente">Gemeente</label>
+                    <input class="form-control" type="text" asp-for="Update.Gemeente" />
+                    <span asp-validation-for="Update.Gemeente" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Straat">Straat</label>
+                    <input class="form-control" asp-for="Update.Straat" type="text" />
+                    <span class="text-danger" asp-validation-for="Update.Straat" />
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.HuisNr">Huisnummer</label>
+                    <input class="form-control" type="text" asp-for="Update.HuisNr" />
+                    <span asp-validation-for="Update.HuisNr" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Postcode">Postcode</label>
+                    <input class="form-control" type="number" asp-for="Update.Postcode" />
+                    <span asp-validation-for="Update.Postcode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Lengtegraad">Lengtegraad</label>
+                    <input class="form-control" type="text" asp-for="Update.Lengtegraad" />
+                    <span asp-validation-for="Update.Lengtegraad" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Breedtegraad">Breedtegraad</label>
+                    <input class="form-control" type="text" asp-for="Update.Breedtegraad" />
+                    <span asp-validation-for="Update.Breedtegraad" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="bewaren" value="Bewaren" />
+                </div>
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="deleten" value="Verwijderen" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        //laden
+          $.ajax({
+                type: "POST",
+                url: "@Url.Action("ZoekPraktijk")",
+                dataType: "json",
+              data: { id: $("#Update_GeselecteerdePraktijk").val() },
+                success: function (data) {
+                    if (data) {
+                        console.log(data);
+                        $("#Update_HuisNr").val(data.huisNr);
+                        $("#Update_Gemeente").val(data.gemeente);
+                        $("#Update_Lengtegraad").val(data.lengtegraad.toString().replace(".", ","));
+                        $("#Update_Breedtegraad").val(data.breedtegraad.toString().replace(".", ","));
+                        $("#Update_Postcode").val(data.postcode);
+                        $("#Update_Straat").val(data.straat);
+                    }
+
+                }
+          })
+
+        //wijzigen van keuze
+        $("#Update_GeselecteerdePraktijk").change(function () {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ZoekPraktijk")",
+                dataType: "json",
+                data: { id: $(this).val() },
+                success: function (data) {
+                    if (data) {
+                        console.log(data);
+                        $("#Update_HuisNr").val(data.huisNr);
+                        $("#Update_Gemeente").val(data.gemeente);
+                        $("#Update_Lengtegraad").val(data.lengtegraad.toString().replace(".",","));
+                        $("#Update_Breedtegraad").val(data.breedtegraad.toString().replace(".", ","));
+                        $("#Update_Postcode").val(data.postcode);
+                        $("#Update_Straat").val(data.straat);
+                    }
+
+                }
+            })
+        })
+    })
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

@@ -1,0 +1,41 @@
+﻿@model Dokterspunt.ViewModels.ListTeamsViewModel
+@{
+    ViewData["Title"] = "Teams";
+}
+
+
+<h1 class="text-center">Teams</h1>
+
+
+@foreach (var locatie in Model.Praktijken)
+{
+    <h2 class="text-center">Team in @locatie.VolledigAdress</h2>
+    <section class="justify-content-center text-center">
+
+        <ul class="col-auto list-unstyled text-center">
+            @if (locatie.Dokters.Count > 0)
+            {
+                @foreach (Dokter item in locatie.Dokters)
+                {
+
+                    @if (item.PraktijkID == locatie.PraktijkID)
+                    {
+
+                        <li> Dokter: @item.Voornaam @item.Achternaam</li>
+                        <li> Specialisatie: @item.Specialisatie.Omschrijving</li>
+                    }
+
+                }
+            }
+            else
+            {
+                <li>Nog geen dokters toegewezen</li>
+            }
+           <li><hr /></li>
+        </ul>
+    </section>
+    
+}
+  
+
+

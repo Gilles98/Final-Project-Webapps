@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Dokterspunt.ViewModels.MedischDossierViewModel
+<div class="row text-left">
+    <div class="col-sm-12 col-md-6 ">
+        <h2> Gegevens van de patiënt</h2>
+        <hr />
+        <label class="col-6">Voornaam: @Model.Patiënt.Voornaam</label>
+        <label class="col-6">Achternaam: @Model.Patiënt.Achternaam</label>
+        <label class="col-6">Gemeente: @Model.Patiënt.Gemeente</label>
+        <label class="col-6">Straat: @Model.Patiënt.Straat</label>
+        <label class="col-6">Huisnummer: @Model.Patiënt.HuisNr</label>
+        <label class="col-6">Postcode: @Model.Patiënt.Postcode</label>
+    </div>
+    <div class="col-sm-12 col-md-6 ">
+        <h2 class="text-sm-center text-md-left">Beheer het dossier</h2>
+        <form asp-action="ProcessForm">
+            <input type="hidden" asp-for="Dossier.ID" />
+            <input type="hidden" asp-for="Dossier.PatiëntID" />
+            <div class="form-row">
+                <div class="col-12">
+                    <label class="form-label" asp-for="Verleden">Verleden</label>
+                    <input class="form-control" type="text" asp-for="Verleden">
+                    <span class="text-danger" asp-validation-for="Verleden"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    <label class="form-label" asp-for="Dossier.Medicatie">Medicatie</label>
+                    <input class="form-control" asp-for="Dossier.Medicatie" type="text" />
+                    <span class="text-danger" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-12">
+                    <label class="form-label" asp-for="Dossier.Diagnose">Diagnose</label>
+                    <input class="form-control" asp-for="Dossier.Diagnose" type="text" />
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn btn-primary form-control buttonMargin" type="submit">Bewaren</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

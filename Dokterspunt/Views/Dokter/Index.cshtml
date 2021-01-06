@@ -1,0 +1,195 @@
+﻿@model Dokterspunt.ViewModels.IndexDokterViewModel
+@{
+    ViewData["Title"] = "Doktersbeheren";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .buttonMargin {
+        margin-top: 2rem;
+        width:100%;
+    }
+</style>
+
+<header class="col-12 text-center">
+    <h1>Dokters beheren</h1>
+</header>
+<div id="wrapper" class="slick-slider">
+
+
+    <div class="col-12">
+        <h2 class="text-sm-center text-md-left">Maak een dokter aan</h2>
+        <form asp-action="Create">
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Voornaam">Voornaam</label>
+                    <input class="form-control" type="text" asp-for="Create.Voornaam" />
+                    <span asp-validation-for="Create.Voornaam" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Achternaam">Achternaam</label>
+                    <input class="form-control" type="text" asp-for="Create.Achternaam" />
+                    <span asp-validation-for="Create.Achternaam" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label class="form-label" asp-for="Create.Email">Doktersmail</label>
+                    <input class="form-control" asp-for="Create.Email" type="text" />
+                    <span class="text-danger" asp-validation-for="Create.Email" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Wachtwoord">Wachtwoord</label>
+                    <input class="form-control" type="password" asp-for="Create.Wachtwoord" />
+                    <span asp-validation-for="Create.Wachtwoord" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Create.Herhaal">Herhalen</label>
+                    <input class="form-control" type="password" asp-for="Create.Herhaal" />
+                    <span asp-validation-for="Create.Herhaal" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    <select asp-for="Create.GeselecteerdePraktijk" class="form-control" asp-items=Model.Create.Praktijken>
+                        <option selected disabled>- Selecteer een praktijk -</option>
+                    </select>
+                    <span asp-validation-for="Create.GeselecteerdePraktijk" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="margin-top:2rem">
+                <div class="col-12">
+                    <select asp-for="Create.GeselecteerdeSpecialiteit" class="form-control " asp-items=Model.Create.Specialiteiten>
+                        <option selected disabled>- Selecteer een specialiteit -</option>
+                    </select>
+                    <span asp-validation-for="Create.GeselecteerdeSpecialiteit" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn btn-primary form-control buttonMargin" type="submit">Maak dokter aan!</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-12">
+        <form asp-action="ProcessForm">
+            <h2 class="text-sm-center text-md-left">Wijzig een dokter of verwijder hem</h2>
+            <div class="form-row">
+                <div class="col-6 form-group">
+                    <label asp-for="Update.Dokters">Kies een dokter</label>
+                    <select asp-for="Update.GeselecteerdeDokter" class="form-control" asp-items=Model.Update.Dokters>
+                        <option disabled>- Dokters -</option>
+                    </select>
+                    <span asp-validation-for="Update.GeselecteerdeDokter" class="text-danger"></span>
+                </div>
+
+                <div class="col-6 form-group">
+                    <label asp-for="Update.Email">E-mail</label>
+                    <input asp-for="Update.Email" class="form-control" />
+                    <span asp-validation-for="Update.Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Voornaam">Voornaam</label>
+                    <input class="form-control" type="text" asp-for="Update.Voornaam" />
+                    <span asp-validation-for="Update.Voornaam" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Achternaam">Achternaam</label>
+                    <input class="form-control" asp-for="Update.Achternaam" type="text" />
+                    <span class="text-danger" asp-validation-for="Update.Achternaam" />
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Wachtwoord">Wachtwoord</label>
+                    <input class="form-control" type="password" asp-for="Update.Wachtwoord" />
+                    <span asp-validation-for="Update.Wachtwoord" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label class="form-label" asp-for="Update.Herhaal">Herhalen</label>
+                    <input class="form-control" type="password" asp-for="Update.Herhaal" />
+                    <span asp-validation-for="Update.Herhaal" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    <select asp-for="Update.GeselecteerdePraktijk" class="form-control" asp-items=Model.Update.Praktijken>
+                        <option selected disabled>- Selecteer een praktijk -</option>
+                    </select>
+                    <span asp-validation-for="Update.GeselecteerdePraktijk" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="margin-top:2rem">
+                <div class="col-12">
+                    <select asp-for="Update.GeselecteerdeSpecialiteit" class="form-control" asp-items=Model.Update.Specialiteiten>
+                        <option selected disabled>- Selecteer een specialiteit -</option>
+                    </select>
+                    <span asp-validation-for="Update.Specialiteiten" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="bewaren" value="Bewaren" />
+                </div>
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="deleten" value="Verwijderen" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        //laden
+          $.ajax({
+                type: "POST",
+                url: "@Url.Action("ZoekDokter")",
+                dataType: "json",
+              data: { id: $("#Update_GeselecteerdeDokter").val() },
+                success: function (data) {
+                    if (data) {
+                        console.log(data);
+                        $("#Update_Voornaam").val(data.voornaam);
+                        $("#Update_Achternaam").val(data.achternaam);
+                        $("#Update_Email").val(data.loggedUser.email);
+                        $("#Update_GeselecteerdeSpecialiteit").val(data.specialisatieID);
+                        $("#Update_GeselecteerdePraktijk").val(data.praktijkID);
+                    }
+
+                }
+          })
+
+        //wijzigen van keuze
+        $("#Update_GeselecteerdeDokter").change(function () {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ZoekDokter")",
+                dataType: "json",
+                data: { id: $(this).val() },
+                success: function (data) {
+                    if (data) {
+                        console.log(data);
+                        $("#Update_Voornaam").val(data.voornaam);
+                        $("#Update_Achternaam").val(data.achternaam);
+                        $("#Update_Email").val(data.loggedUser.email);
+                        $("#Update_GeselecteerdeSpecialiteit").val(data.specialisatieID);
+                        $("#Update_GeselecteerdePraktijk").val(data.praktijkID);
+                    }
+
+                }
+            })
+        })
+    })
+</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

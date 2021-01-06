@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Dokterspunt-7C6CC7AE-66A3-4DAC-94C0-6CDB386D121B</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201207143329_UpdateModels.cs" />
+    <Compile Remove="Migrations\20201207143329_UpdateModels.Designer.cs" />
+    <Compile Remove="Migrations\20201207143701_UpdateModels.cs" />
+    <Compile Remove="Migrations\20201207143701_UpdateModels.Designer.cs" />
+    <Compile Remove="Migrations\20201207165906_Update.cs" />
+    <Compile Remove="Migrations\20201207165906_Update.Designer.cs" />
+    <Compile Remove="Migrations\20201207165952_update.cs" />
+    <Compile Remove="Migrations\20201207165952_update.Designer.cs" />
+    <Compile Remove="Migrations\20201207170028_update.cs" />
+    <Compile Remove="Migrations\20201207170028_update.Designer.cs" />
+    <Compile Remove="Migrations\20201207170115_update.cs" />
+    <Compile Remove="Migrations\20201207170115_update.Designer.cs" />
+    <Compile Remove="Migrations\20210103182008_AddedNewFluentValidator.cs" />
+    <Compile Remove="Migrations\20210103182008_AddedNewFluentValidator.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.3.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Store.PartnerCenter" Version="1.16.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="SendGrid" Version="9.21.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\css\images\Syringe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

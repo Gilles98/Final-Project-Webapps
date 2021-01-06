@@ -1,0 +1,71 @@
+﻿@model Dokterspunt.ViewModels.DropdownLocationViewModel
+
+@{
+    ViewData["Title"] = "Locatie";
+}
+
+
+<div class="row justify-content-center text-center">
+    <section class="col-sm-12 col-md-8 col-lg-6">
+
+        <section class="col-auto">
+            <h1>Locatie</h1>
+
+            <h2 style="margin-top:2%">Google Maps</h2>
+            <form asp-action="Locatie">
+                <div class="form-row">
+                    <select asp-for="GeselecteerdePraktijk" class="form-control " asp-items=Model.Praktijken>
+                        <option selected disabled>- Selecteer een locatie -</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <input class="btn btn-primary form-control" style="margin-top:2rem" value="Wave the magic wand &#129498;" type="submit" />
+                </div>
+                @if (Model.GeselecteerdePraktijk > 0)
+                {
+                    <div class="form-row ">
+                        <label class="col-sm-6 col-5 text-sm-center text-md-left text-lg-left">Lengtegraad: <span id="Lengtegraad">@Model.Praktijk.Lengtegraad</span> </label>
+                        <label class="col-sm-6 col-5 text-sm-center text-md-right text-lg-right">Breedtegraad: <span id="Breedtegraad">@Model.Praktijk.Breedtegraad</span></label>
+                    </div>
+                }
+                <div class="form-row">
+                    <div id="map" class="form-control" >
+
+                    </div>
+                </div>
+            </form>
+        </section>
+
+
+
+    </section>
+
+
+</div>
+
+<script>
+    let map;
+    var breedtegraad;
+    var lengtegraad;
+    function initMap()
+    {
+      var coördinaatTwee = 4.6477147067697;
+        var coördinaatEen = 51.11742428421;
+        if (@Model.GeselecteerdePraktijk > 0) {
+           lengtegraad = document.getElementById("Lengtegraad").innerText;
+           breedtegraad = document.getElementById("Breedtegraad").innerText;
+           coördinaatTwee = parseFloat(lengtegraad.replace(",", "."));
+           coördinaatEen = parseFloat(breedtegraad.replace(",", "."));
+           }
+        map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: coördinaatEen, lng: coördinaatTwee },
+            zoom: 16
+        });
+
+
+   }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXzxHm6ElQW0SIP3CW7BNANyC2rhJgifA&callback=initMap">
+</script>
+
+

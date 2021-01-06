@@ -1,0 +1,77 @@
+﻿@model Dokterspunt.ViewModels.CreateAfspraakViewModel
+
+<div class="col-sm-12">
+    <form asp-action="Create" id="form1">
+        <h2>Maak een nieuwe afspraak.</h2>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="GeselecteerdeDokter">Kies uw dokter</label>
+                <select class="form-control getDokter" asp-items="Model.Dokters" asp-for="GeselecteerdeDokter" ><option selected disabled> Kies een dokter</option></select>
+                <span asp-validation-for="GeselecteerdeDokter" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="GeselecteerdeAfspraakType"> Soort afspraak</label>
+                <select asp-for="GeselecteerdeAfspraakType" class="form-control" asp-items="Model.Afspraaktypes"><option selected disabled> Kies een soort afspraak</option></select>
+                <span class="text-danger" asp-validation-for="GeselecteerdeAfspraakType"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Klacht.Omschrijving">Klacht</label>
+                <input asp-for="Klacht.Omschrijving" class="form-control"
+                       placeholder="Hoesten" />
+                <span class="text-danger" asp-validation-for="Klacht.Omschrijving"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Klacht2.Omschrijving">Extra klacht</label>
+                <input asp-for="Klacht2.Omschrijving" class="form-control"
+                       placeholder="(optioneel)" />
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-12">
+                <label asp-for="Afspraak.AfspraakMoment">Moment</label>
+                <input asp-for="Afspraak.AfspraakMoment" type="datetime-local" class="form-control">
+                <span id="moment" class="text-danger" asp-validation-for="Afspraak.AfspraakMoment"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <input class="btn btn-primary buttonMargin" type="submit" name="bewaren" value="Bewaren" />
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+
+    $(function () {
+
+        $("#Afspraak_AfspraakMoment").change(function () {
+            var value = $(this).val();
+            console.log($("#GeselecteerdeDokter").val());
+            $.ajax({
+                type: "POST",
+                dataType: "text",
+                url: "@Url.Action("CheckDate")",
+                data: { date: value, id: $("#GeselecteerdeDokter").val() },
+                success: function (msg) {
+                    if (msg != "") {
+                        alert(msg);
+                    }
+                    
+                }
+            })
+        })
+    })
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

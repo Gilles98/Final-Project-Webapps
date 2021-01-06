@@ -1,0 +1,72 @@
+﻿@model Dokterspunt.ViewModels.UpdatePatiëntGegevensViewModel;
+
+    <div class="col-sm-12">
+        <form asp-action="ProcessForm">
+            <input type="hidden" asp-for="Patiënt.PatiëntID" />
+            <input type="hidden" asp-for="Patiënt.UserID" />
+            <h1>Wijzig je account of verwijder het.</h1>
+            <hr />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Patiënt.Voornaam">Voornaam</label>
+                    <input class="form-control" asp-for="Patiënt.Voornaam"
+                           placeholder="Uw voornaam">
+                    <span asp-validation-for="Patiënt.Voornaam" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Patiënt.Achternaam"> Achternaam</label>
+                    <input class="form-control" asp-for="Patiënt.Achternaam"
+                           placeholder="Uw achternaam">
+                    <span asp-validation-for="Patiënt.Achternaam" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wachtwoord">Nieuw wachtwoord</label>
+                <input asp-for="Wachtwoord" class="form-control" placeholder="Wachtwoord" />
+                <span asp-validation-for="Wachtwoord" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Patiënt.Gemeente">Gemeente</label>
+                    <input asp-for="Patiënt.Gemeente" class="form-control"
+                           placeholder="Gemeente" />
+                    <span asp-validation-for="Patiënt.Gemeente" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Patiënt.Straat">Straat</label>
+                    <input asp-for="Patiënt.Straat" class="form-control"
+                           placeholder="Straat" />
+                    <span asp-validation-for="Patiënt.Straat" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Patiënt.HuisNr">Huisnummer</label>
+                    <input asp-for="Patiënt.HuisNr" class="form-control"
+                           placeholder="Huisnummer" />
+                    <span asp-validation-for="Patiënt.HuisNr" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Patiënt.Postcode">Postcode</label>
+                    <input asp-for="Patiënt.Postcode" type="number" class="form-control">
+                    <span asp-validation-for="Patiënt.Postcode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="bewaren" value="Bewaren" />
+                </div>
+                <div class="form-group col-6">
+                    <input class="btn btn-primary buttonMargin" type="submit" name="deleten" value="Verwijderen" />
+                </div>
+
+            </div>
+        </form>
+    </div>

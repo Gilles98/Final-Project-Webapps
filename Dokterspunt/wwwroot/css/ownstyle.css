@@ -1,0 +1,172 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+
+}
+body {
+    background-color: #F5FFFA;
+    color:inherit
+}
+/*hiervan gehaald alle credits gaan naar deze site https://www.totallyfreecursors.com/details.cfm/id/1308/Syringe.htm */
+HTML, BODY{
+    cursor: url("https://downloads.totallyfreecursors.com/cursor_files/syringe.cur"), url("https://downloads.totallyfreecursors.com/thumbnails/syringe.gif"), auto;
+}
+/*max compatibiliteit*/
+nav {
+    background: rgb(1,34,116);
+    background: -moz-linear-gradient(90deg, rgba(1,34,116,1) 1%, rgba(43,59,172,1) 36%, rgba(67,82,205,1) 57%, rgba(54,95,196,1) 67%, rgba(44,35,182,1) 86%);
+    background: -webkit-linear-gradient(90deg, rgba(1,34,116,1) 1%, rgba(43,59,172,1) 36%, rgba(67,82,205,1) 57%, rgba(54,95,196,1) 67%, rgba(44,35,182,1) 86%);
+    background: linear-gradient(90deg, rgba(1,34,116,1) 1%, rgba(43,59,172,1) 36%, rgba(67,82,205,1) 57%, rgba(54,95,196,1) 67%, rgba(44,35,182,1) 86%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#012274",endColorstr="#2c23b6",GradientType=1);
+    color: inherit;
+}
+
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-brand:hover {
+    font-weight: bold;
+    color:white;
+    background:inherit;
+
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand, .nav-item .nav-link {
+    color: white;
+    opacity: 1;
+    background: inherit;
+    line-height: 2.5rem;
+}
+.nav-item .nav-link:visited, .navbar-brand:visited{
+    color: antiquewhite;
+}
+
+.navbar-toggler {
+    background: white;
+}
+.footer {
+    padding: 10px;
+    margin-top: 2rem;
+    clear: both;
+    float: left;
+    height: 2rem;
+}
+
+/*Maatregelen view*/
+.list-group-item {
+    background: rgb(0, 148, 255);
+    font-weight: bold;
+    margin-top: 0.4em;
+    border: 1px solid black;
+    max-width:95%;
+}
+
+/*Error view*/
+.loadError{
+    display:none;
+}
+
+
+.colorError {
+    background: inherit;
+    color: red;
+}
+
+/*Locatie view*/
+#map {
+    height: 20rem;
+    width: 35rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+a.button {
+    font: bold 1rem Arial;
+    text-decoration: none;
+    background-color: black;
+    color: inherit;
+    padding: 2px 6px;
+    text-align: center !important;
+    margin: 1%;
+    height: 2rem;
+    width: 100%;
+    float: left;
+}
+
+
+
+
+canvas {
+    border: 2px solid lightblue;
+    display: block;
+    margin: 0 auto;
+    width:25rem;
+    height:20rem;
+}
+
+.buttonMargin {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.loginRegister {
+    background: white;
+    border: 1px solid lightblue;
+    border-radius: 5%
+}
+
+@media screen and (max-width: 600px){
+    .h1Resize{font-size: 1.9rem; }
+    .list-group-item{max-width:100%}
+}
+
+@media screen and (max-width: 400px){
+    .h1Resize{font-size:1.8rem;
+              margin-bottom:10px;
+    }
+}
+
+
+@media screen and (min-width:570px) and (max-width:790px){
+    .navbar-brand {
+        font-size:1rem !important;
+    }
+    .nav-item{
+        font-size: 0.9rem !important;
+    }
+}
+
+@media screen and (min-width:200px) and (max-width:1010px){
+    a.button{
+        width:50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width:959px){
+    canvas#stage{
+        display:none;
+    }
+    .loadError{display: block}
+        .loadError img {
+            height: 25rem;
+            width: 30rem;
+            margin: auto;
+        }
+}
+
+@media screen and (max-device-width:500px){
+    .loadError img {
+        height: 20rem;
+        width: 25rem;
+        margin: auto;
+    }
+}
+
+@media screen and (max-device-width:362px) {
+    .loadError img {
+        height: 15rem;
+        width: 20rem;
+        margin: auto;
+    }
+}

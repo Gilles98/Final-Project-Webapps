@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Dokterspunt.ViewModels.UpdateAfspraakViewModel
+
+<div class="col-sm-12">
+    <form asp-action="ProcessForm">
+        <input id="hidden" type="hidden" asp-for="Afspraak.AfspraakID" /><input id="hidden" type="hidden" asp-for="Afspraak.PatiëntID" />
+        <h2>Wijzig een afspraak</h2>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="GeselecteerdeDokter">Kies uw dokter</label>
+                <select class="form-control" asp-items="Model.Dokters" asp-for="GeselecteerdeDokter"><option selected disabled> Kies een dokter</option></select>
+                <span asp-validation-for="GeselecteerdeDokter" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="GeselecteerdeAfspraakType"> Soort afspraak</label>
+                <select asp-for="GeselecteerdeAfspraakType" class="form-control" asp-items="Model.Afspraaktypes"><option selected disabled> Kies een soort afspraak</option></select>
+                <span class="text-danger" asp-validation-for="GeselecteerdeAfspraakType"></span>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-12">
+                <label asp-for="Afspraak.AfspraakMoment">Moment</label>
+                <input asp-for="Afspraak.AfspraakMoment" type="datetime-local" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-6">
+                <input class="btn btn-primary buttonMargin" type="submit" name="bewaren" value="Bewaren" />
+            </div>
+            <div class="form-group col-6">
+                <input class="btn btn-primary buttonMargin" type="submit" name="deleten" value="Verwijderen" />
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+<script>
+
+    $(function () {
+
+        $("#Afspraak_AfspraakMoment").change(function () {
+            var value = $(this).val();
+            console.log($("#GeselecteerdeDokter").val());
+            $.ajax({
+                type: "POST",
+                dataType: "text",
+                url: "@Url.Action("CheckDate")",
+                data: { date: value, id: $("#GeselecteerdeDokter").val(), afspraakId: $("#hidden").val() },
+                success: function (msg) {
+                    if (msg != "") {
+                        alert(msg);
+                    }
+
+                }
+            })
+        })
+    })
+</script>

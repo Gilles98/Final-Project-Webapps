@@ -1,0 +1,170 @@
+﻿@model Dokterspunt.ViewModels.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+
+@if (User.IsInRole("Patiënt"))
+{<header class="col-12 text-center">
+        <h1 class="h1Resize">Dag @Model.Patiënt.Voornaam dit zijn jouw afspraken</h1>
+    </header>
+    <div class="row justify-content-center" style="margin-top: 2rem">
+        <div class="col-auto">
+
+
+            <table class="table-responsive table text-center">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Afspraken[0].AfspraakMoment)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Afspraken[0].AfspraakType.SoortAfspraak)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Afspraken[0].Dokter.VolledigeGegevens)
+                        </th>
+                        <th>
+                            Afspraken beheren
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Afspraak afspraak in Model.Afspraken)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => afspraak.AfspraakMoment)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => afspraak.AfspraakType.SoortAfspraak)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => afspraak.Dokter.VolledigeGegevens)
+                            </td>
+                            <td>
+                                <a asp-action="Beheer" asp-controller="Afspraak" asp-route-id="@afspraak.AfspraakID">Beheer</a> 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+            <div class="row">
+                <div class=" col-sm-12 col-md-4">
+                    <a class="btn btn-primary buttonMargin" asp-action="Create" asp-controller="Afspraak">Afspraak aanmaken</a>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <a class="btn btn-primary buttonMargin" style="color:white;" asp-controller="Patiënt" asp-action="Index" asp-route-id="@Model.Patiënt.PatiëntID">Mijn gegevens</a>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <a class="btn btn-primary buttonMargin" style="color:white;" asp-controller="Klacht" asp-action="Index" asp-route-id="@Model.Patiënt.PatiëntID">Beheer klachten</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+else if (User.IsInRole("Dokter"))
+{
+    <header class="col-12 text-center">
+        <h1 class="h1Resize">Dag Dr.@Model.Dokter.Voornaam dit zijn jouw afspraken.</h1>
+    </header>
+    <div class="row justify-content-center" style="margin-top: 2rem">
+        <div class="col-auto">
+
+
+            <table class="table-responsive table text-center">
+                <thead>
+                    <tr>
+                       <th>
+                            @Html.DisplayNameFor(model => model.Afspraken[0].AfspraakMoment)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Afspraken[0].AfspraakType.SoortAfspraak)
+                        </th>
+                        <th>
+                           Patiënt Gegevens
+                        </th>
+                        <th>
+                            Dossiers
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Afspraak afspraak in Model.Afspraken)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => afspraak.AfspraakMoment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => afspraak.AfspraakType.SoortAfspraak)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => afspraak.Patiënt.VolledigePatiënt)
+                        </td>
+                        <td>
+                            <a asp-action="Index" asp-controller="Dossier" asp-route-id="@afspraak.PatiëntID">Dossier beheren</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+}
+else
+{
+    
+    
+    <div class="row text-left">
+        <div class="col-sm-12 col-md-6 ">
+                <h1> Welkom!</h1>
+            <p>
+                Hallo bezoeker! mijn naam is Gilles en dit is mijn project.
+            </p>
+            <p>
+                In dit project wil ik dat mensen een afspraak bij een dokter kunnen maken. <br />
+                Ook kunnen mensen hun eigen afspraken beheren.
+            </p>
+            <p>
+                Als dokter kan u in deze applicatie ook de afspraken beheren en het medische dossier aanpassen.
+                er is ook een admin die nog extra crud operaties kan uitvoeren.
+            </p>
+            <p>
+                Doormiddel van een slimme publieke API kan u ook uitzoeken waar de praktijk gelegen is.
+            </p>
+
+            <p>Verder kan u op deze site wat rondkijken bij bovenstaande links die voor iedereen toegankelijk zijn</p>
+
+            <p>
+                Bij teams krijgt u een overzicht te zien van elke dokter per locatie. dit wel zonder foto omdat dit een onofficieel project is
+            </p>
+        </div>
+        <div class="col-sm-12 col-md-6 text-left">
+            <h2>Hoe kan ik verder?</h2>
+            <p>
+                u kan verder gaan door in te loggen als u al een account heeft of door te registreren
+            </p>
+            <p>
+                eenmaal geregistreerd/ingelogd kan u als patiënt een afspraak aanmaken.
+                Dit doet u terwijl u ook een tijdstip meegeeft maar let op! een consultatie duurt minstens 15 minuten!
+            </p>
+
+            <p>
+                U kan uiteraard ook gewoon de afspraak uiteindelijk afzeggen of er een aantal zaken aan wijzigen.
+            </p>
+            <p>
+                Als u als dokter inlogd dan krijgt u ook uw afspraken te zien met daarbij ook een paar verschillende opties.
+            </p>
+
+            <a asp-controller="Error" asp-action="Index">Controleer de error page</a>
+        </div>
+    </div>
+}
