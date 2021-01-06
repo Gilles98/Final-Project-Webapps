@@ -7,169 +7,169 @@ namespace Dokterspunt.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "Webapps");
+                name: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "Specialisatie",
                 newName: "Specialisatie",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "Praktijk",
                 newName: "Praktijk",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "Patiënt",
                 newName: "Patiënt",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "MedischDossier",
                 newName: "MedischDossier",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "KlachtPatiënt",
                 newName: "KlachtPatiënt",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "Klacht",
                 newName: "Klacht",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "Dokter",
                 newName: "Dokter",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserTokens",
                 newName: "AspNetUserTokens",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUsers",
                 newName: "AspNetUsers",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserRoles",
                 newName: "AspNetUserRoles",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserLogins",
                 newName: "AspNetUserLogins",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserClaims",
                 newName: "AspNetUserClaims",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "AspNetRoles",
                 newName: "AspNetRoles",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "AspNetRoleClaims",
                 newName: "AspNetRoleClaims",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "Afspraaktype",
                 newName: "Afspraaktype",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
 
             migrationBuilder.RenameTable(
                 name: "Afspraak",
                 newName: "Afspraak",
-                newSchema: "Webapps");
+                newSchema: "WEBAPPS");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameTable(
                 name: "Specialisatie",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "Specialisatie");
 
             migrationBuilder.RenameTable(
                 name: "Praktijk",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "Praktijk");
 
             migrationBuilder.RenameTable(
                 name: "Patiënt",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "Patiënt");
 
             migrationBuilder.RenameTable(
                 name: "MedischDossier",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "MedischDossier");
 
             migrationBuilder.RenameTable(
                 name: "KlachtPatiënt",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "KlachtPatiënt");
 
             migrationBuilder.RenameTable(
                 name: "Klacht",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "Klacht");
 
             migrationBuilder.RenameTable(
                 name: "Dokter",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "Dokter");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserTokens",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "AspNetUserTokens");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUsers",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "AspNetUsers");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserRoles",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "AspNetUserRoles");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserLogins",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "AspNetUserLogins");
 
             migrationBuilder.RenameTable(
                 name: "AspNetUserClaims",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "AspNetUserClaims");
 
             migrationBuilder.RenameTable(
                 name: "AspNetRoles",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "AspNetRoles");
 
             migrationBuilder.RenameTable(
                 name: "AspNetRoleClaims",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "AspNetRoleClaims");
 
             migrationBuilder.RenameTable(
                 name: "Afspraaktype",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "Afspraaktype");
 
             migrationBuilder.RenameTable(
                 name: "Afspraak",
-                schema: "Webapps",
+                schema: "WEBAPPS",
                 newName: "Afspraak");
         }
     }

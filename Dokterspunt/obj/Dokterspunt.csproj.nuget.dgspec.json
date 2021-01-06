@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\guigi\\OneDrive\\Bureaublad\\test\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj": {}
+    "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\guigi\\OneDrive\\Bureaublad\\test\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj": {
+    "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\test\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
+        "projectUniqueName": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
         "projectName": "Dokterspunt",
-        "projectPath": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\test\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
+        "projectPath": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
         "packagesPath": "C:\\Users\\guigi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\test\\Final-Project-Webapps\\Dokterspunt\\obj\\",
+        "outputPath": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\guigi\\AppData\\Roaming\\NuGet\\NuGet.Config",

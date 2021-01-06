@@ -113,6 +113,7 @@ namespace Dokterspunt.Areas.Identity.Pages.Account
                 }
                 else
                 {
+                user = new LoggedInUser();
                 user.UserName = Input.Email;
                 user.NormalizedUserName = Input.Email.ToUpper();
                 user.Email = Input.Email;

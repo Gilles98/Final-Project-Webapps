@@ -190,7 +190,7 @@ namespace Dokterspunt
                 endpoints.MapRazorPages();
             });
             logger.LogInformation("Connection: " +  Configuration["Connection"]);
-           // CreateUserRoles(serviceProvider).Wait();
+            CreateUserRoles(serviceProvider).Wait();
         }
     }
 }
