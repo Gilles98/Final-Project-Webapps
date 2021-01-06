@@ -115,17 +115,21 @@ namespace Dokterspunt.Controllers
             try
             {
                 if (ModelState.IsValid)
-                {   ///dokters herindelen
+                {
+                    var alleSpecialisaties = _context.Specialisaties.Count();
+                    //ervoor zorgen dat de laatste specialisatie niet kan worden verwijderd
+                    if (alleSpecialisaties <= 1)
+                    {
+                      return RedirectToAction(nameof(Index));
+                    }
+                    ///dokters herindelen
                     var dokters = await _context.Dokters.Where(x => x.SpecialisatieID == viewModel.Update.GeselecteerdeSpecialisatie).ToListAsync();
                     if (dokters != null)
                     {
                         var specialisaties = await _context.Specialisaties.Where(x => x.SpecialisatieID != viewModel.Update.GeselecteerdeSpecialisatie).ToListAsync();
 
-                        //ervoor zorgen dat de laatste specialisatie niet kan worden verwijderd
-                        if (specialisaties.Count <= 1)
-                        {
-                            return RedirectToAction(nameof(Index));
-                        }
+                       
+      
 
                         Random random = new Random();
                         for (int i = 0; i <= dokters.Count-1; i++)
