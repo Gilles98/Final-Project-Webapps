@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dokterspunt.Migrations
 {
     [DbContext(typeof(DokterspuntContext))]
-    [Migration("20201213132356_something")]
-    partial class something
+    [Migration("20210106185445_2ndeInitialCreate")]
+    partial class _2ndeInitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("Webapps")
+                .HasDefaultSchema("Webapplicaties")
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);

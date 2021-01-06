@@ -27,7 +27,7 @@ namespace Dokterspunt.Data
         public DbSet<Specialisatie>Specialisaties { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("Webapps");
+            modelBuilder.HasDefaultSchema("Webapplicaties");
 
             base.OnModelCreating(modelBuilder);
 

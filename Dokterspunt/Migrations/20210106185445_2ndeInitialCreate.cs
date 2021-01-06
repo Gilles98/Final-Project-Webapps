@@ -3,12 +3,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Dokterspunt.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class _2ndeInitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "Webapplicaties");
+
             migrationBuilder.CreateTable(
                 name: "Afspraaktype",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     AfspraakTypeID = table.Column<int>(nullable: false)
@@ -22,6 +26,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -36,6 +41,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -61,6 +67,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Klacht",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     KlachtID = table.Column<int>(nullable: false)
@@ -74,6 +81,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Praktijk",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     PraktijkID = table.Column<int>(nullable: false)
@@ -92,6 +100,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Specialisatie",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     SpecialisatieID = table.Column<int>(nullable: false)
@@ -105,6 +114,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -119,6 +129,7 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -126,6 +137,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -140,6 +152,7 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -147,6 +160,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserLogins",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
@@ -160,6 +174,7 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -167,6 +182,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserRoles",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -178,12 +194,14 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -191,6 +209,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserTokens",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -204,6 +223,7 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -211,6 +231,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Patiënt",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     PatiëntID = table.Column<int>(nullable: false)
@@ -229,6 +250,7 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_Patiënt_AspNetUsers_UserID",
                         column: x => x.UserID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -236,6 +258,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Dokter",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     DokterID = table.Column<int>(nullable: false)
@@ -252,18 +275,21 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_Dokter_Praktijk_PraktijkID",
                         column: x => x.PraktijkID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Praktijk",
                         principalColumn: "PraktijkID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Dokter_Specialisatie_SpecialisatieID",
                         column: x => x.SpecialisatieID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Specialisatie",
                         principalColumn: "SpecialisatieID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Dokter_AspNetUsers_UserID",
                         column: x => x.UserID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -271,6 +297,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "KlachtPatiënt",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     KlachtPatiëntID = table.Column<int>(nullable: false)
@@ -284,12 +311,14 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_KlachtPatiënt_Klacht_KlachtID",
                         column: x => x.KlachtID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Klacht",
                         principalColumn: "KlachtID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_KlachtPatiënt_Patiënt_PatiëntID",
                         column: x => x.PatiëntID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Patiënt",
                         principalColumn: "PatiëntID",
                         onDelete: ReferentialAction.Cascade);
@@ -297,6 +326,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "MedischDossier",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -312,6 +342,7 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_MedischDossier_Patiënt_PatiëntID",
                         column: x => x.PatiëntID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Patiënt",
                         principalColumn: "PatiëntID",
                         onDelete: ReferentialAction.Cascade);
@@ -319,6 +350,7 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Afspraak",
+                schema: "Webapplicaties",
                 columns: table => new
                 {
                     AfspraakID = table.Column<int>(nullable: false)
@@ -334,18 +366,21 @@ namespace Dokterspunt.Migrations
                     table.ForeignKey(
                         name: "FK_Afspraak_Afspraaktype_AfspraakTypeID",
                         column: x => x.AfspraakTypeID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Afspraaktype",
                         principalColumn: "AfspraakTypeID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Afspraak_Dokter_DokterID",
                         column: x => x.DokterID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Dokter",
                         principalColumn: "DokterID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Afspraak_Patiënt_PatiëntID",
                         column: x => x.PatiëntID,
+                        principalSchema: "Webapplicaties",
                         principalTable: "Patiënt",
                         principalColumn: "PatiëntID",
                         onDelete: ReferentialAction.Cascade);
@@ -353,26 +388,31 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afspraak_AfspraakTypeID",
+                schema: "Webapplicaties",
                 table: "Afspraak",
                 column: "AfspraakTypeID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afspraak_DokterID",
+                schema: "Webapplicaties",
                 table: "Afspraak",
                 column: "DokterID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Afspraak_PatiëntID",
+                schema: "Webapplicaties",
                 table: "Afspraak",
                 column: "PatiëntID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
+                schema: "Webapplicaties",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
+                schema: "Webapplicaties",
                 table: "AspNetRoles",
                 column: "NormalizedName",
                 unique: true,
@@ -380,26 +420,31 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
+                schema: "Webapplicaties",
                 table: "AspNetUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserLogins_UserId",
+                schema: "Webapplicaties",
                 table: "AspNetUserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_RoleId",
+                schema: "Webapplicaties",
                 table: "AspNetUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
+                schema: "Webapplicaties",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
+                schema: "Webapplicaties",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true,
@@ -407,16 +452,19 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Dokter_PraktijkID",
+                schema: "Webapplicaties",
                 table: "Dokter",
                 column: "PraktijkID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Dokter_SpecialisatieID",
+                schema: "Webapplicaties",
                 table: "Dokter",
                 column: "SpecialisatieID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Dokter_UserID",
+                schema: "Webapplicaties",
                 table: "Dokter",
                 column: "UserID",
                 unique: true,
@@ -424,21 +472,25 @@ namespace Dokterspunt.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_KlachtPatiënt_KlachtID",
+                schema: "Webapplicaties",
                 table: "KlachtPatiënt",
                 column: "KlachtID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_KlachtPatiënt_PatiëntID",
+                schema: "Webapplicaties",
                 table: "KlachtPatiënt",
                 column: "PatiëntID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MedischDossier_PatiëntID",
+                schema: "Webapplicaties",
                 table: "MedischDossier",
                 column: "PatiëntID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Patiënt_UserID",
+                schema: "Webapplicaties",
                 table: "Patiënt",
                 column: "UserID",
                 unique: true,
@@ -448,52 +500,68 @@ namespace Dokterspunt.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Afspraak");
+                name: "Afspraak",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoleClaims");
+                name: "AspNetRoleClaims",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserClaims");
+                name: "AspNetUserClaims",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserLogins");
+                name: "AspNetUserLogins",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserRoles");
+                name: "AspNetUserRoles",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "AspNetUserTokens");
+                name: "AspNetUserTokens",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "KlachtPatiënt");
+                name: "KlachtPatiënt",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "MedischDossier");
+                name: "MedischDossier",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "Afspraaktype");
+                name: "Afspraaktype",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "Dokter");
+                name: "Dokter",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
+                name: "AspNetRoles",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "Klacht");
+                name: "Klacht",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "Patiënt");
+                name: "Patiënt",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "Praktijk");
+                name: "Praktijk",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "Specialisatie");
+                name: "Specialisatie",
+                schema: "Webapplicaties");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "AspNetUsers",
+                schema: "Webapplicaties");
         }
     }
 }

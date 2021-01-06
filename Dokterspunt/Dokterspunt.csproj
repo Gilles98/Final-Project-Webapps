@@ -6,23 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20201207143329_UpdateModels.cs" />
-    <Compile Remove="Migrations\20201207143329_UpdateModels.Designer.cs" />
-    <Compile Remove="Migrations\20201207143701_UpdateModels.cs" />
-    <Compile Remove="Migrations\20201207143701_UpdateModels.Designer.cs" />
-    <Compile Remove="Migrations\20201207165906_Update.cs" />
-    <Compile Remove="Migrations\20201207165906_Update.Designer.cs" />
-    <Compile Remove="Migrations\20201207165952_update.cs" />
-    <Compile Remove="Migrations\20201207165952_update.Designer.cs" />
-    <Compile Remove="Migrations\20201207170028_update.cs" />
-    <Compile Remove="Migrations\20201207170028_update.Designer.cs" />
-    <Compile Remove="Migrations\20201207170115_update.cs" />
-    <Compile Remove="Migrations\20201207170115_update.Designer.cs" />
-    <Compile Remove="Migrations\20210103182008_AddedNewFluentValidator.cs" />
-    <Compile Remove="Migrations\20210103182008_AddedNewFluentValidator.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.3.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
