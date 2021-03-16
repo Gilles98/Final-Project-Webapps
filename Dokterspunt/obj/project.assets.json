@@ -9571,11 +9571,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
+      "projectUniqueName": "E:\\PROJECTEN\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
       "projectName": "Dokterspunt",
-      "projectPath": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
+      "projectPath": "E:\\PROJECTEN\\Final-Project-Webapps\\Dokterspunt\\Dokterspunt.csproj",
       "packagesPath": "C:\\Users\\guigi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guigi\\OneDrive\\Bureaublad\\final\\Final-Project-Webapps\\Dokterspunt\\obj\\",
+      "outputPath": "E:\\PROJECTEN\\Final-Project-Webapps\\Dokterspunt\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\guigi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9590,6 +9590,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -9601,6 +9602,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "FluentValidation.AspNetCore": {
             "target": "Package",
@@ -9683,7 +9685,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   },
